@@ -1,0 +1,23 @@
+version: '3.3'
+
+services:
+  app: 
+    build: .
+    ports: 
+      - 8000:8000
+    command: "uvicorn main:app --host 0.0.0.0 --reload"
+    depends_on:
+      - db
+    
+  front:
+    build: 
+      context: ./frontend/
+      dockerfile: Dockerfile
+
+  db:
+    image : mongo
+    container_name : mongodb
+    ports:
+      - 27017:27017
+    
+    
