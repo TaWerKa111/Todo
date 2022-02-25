@@ -15,5 +15,4 @@ function TodoItem(props){
             </div>
         )
 } 
-
 export default TodoItem;
